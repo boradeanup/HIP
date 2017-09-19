@@ -522,7 +522,8 @@ macro(HIP_ADD_EXECUTABLE hip_target)
     endif()
     set(CMAKE_HIP_LINK_EXECUTABLE "${HIP_HIPCC_CMAKE_LINKER_HELPER} ${HCC_HOME} <FLAGS> <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>")
     add_executable(${hip_target} ${_cmake_options} ${_generated_files} ${_sources})
-    set_target_properties(${hip_target} PROPERTIES LINKER_LANGUAGE HIP)
+#   set_target_properties(${hip_target} PROPERTIES LINKER_LANGUAGE HIP)
+    set_target_properties(${hip_target} PROPERTIES LINKER_LANGUAGE ${HIP_C_OR_CXX})
 endmacro()
 
 ###############################################################################
